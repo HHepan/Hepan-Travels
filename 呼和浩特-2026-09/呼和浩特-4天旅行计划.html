@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>呼和浩特 4天3晚 金秋草原旅行计划</title>
+<style>
+:root{
+  --grass:#C99B45; --grass-deep:#A87B2F; --grass-soft:#E3C77E;
+  --sky:#F8F1E0; --card:#FFFFFF; --cream:#FBF7EC;
+  --night:#23324C; --night-2:#31466E; --night-soft:#8FA3C4;
+  --brick:#A4503F; --brick-soft:#C97E5F;
+  --ink:#2C2A26; --muted:#7A7468; --line:#E5DCC8; --ok:#4A7C59;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Segoe UI",sans-serif;
+  background:var(--sky); color:var(--ink); line-height:1.7; -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.serif{font-family:"Noto Serif SC","Songti SC","SimSun","STSong",serif}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+section{padding:56px 0}
+.section-head{display:flex;align-items:baseline;gap:14px;margin-bottom:28px}
+.section-head .no{font-family:Georgia,serif;font-size:15px;color:var(--grass-deep);letter-spacing:2px}
+.section-head h2{font-size:26px;font-weight:700;letter-spacing:2px;color:var(--night)}
+.section-head .line{flex:1;height:1px;background:var(--line)}
+/* ===== HERO ===== */
+.hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#2B3D5E 0%,#3E5680 34%,#C99B45 78%,#E8C77E 100%);padding:120px 0 170px;text-align:center}
+.hero-sky{position:absolute;left:0;bottom:0;width:100%;height:100%;pointer-events:none}
+.hero-inner{position:relative;z-index:2}
+.hero-kicker{display:inline-block;color:#F3E4B8;letter-spacing:8px;font-size:14px;border:1px solid rgba(243,228,184,.5);border-radius:99px;padding:6px 22px;margin-bottom:22px;background:rgba(35,50,76,.25)}
+.hero h1{color:#FBF4DF;font-size:44px;font-weight:900;letter-spacing:6px;text-shadow:0 3px 18px rgba(0,0,0,.35)}
+.hero-sub{color:#EFDCA8;margin-top:14px;font-size:15px;letter-spacing:3px}
+.hero-meta{display:flex;justify-content:center;gap:0;margin-top:26px;flex-wrap:wrap}
+.hero-meta .chip{background:rgba(251,244,223,.14);border:1px solid rgba(251,244,223,.35);color:#F8EBC9;padding:7px 18px;font-size:13px;letter-spacing:1px;backdrop-filter:blur(4px)}
+.hero-meta .chip+.chip{border-left:none}
+.hero-meta .chip:first-child{border-radius:8px 0 0 8px}
+.hero-meta .chip:last-child{border-radius:0 8px 8px 0}
+/* ===== OVERVIEW CARDS ===== */
+.overview{margin-top:-92px;position:relative;z-index:5}
+.ov-grid{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:16px}
+.ov-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;box-shadow:0 10px 30px rgba(35,50,76,.08)}
+.ov-card .t{font-size:12px;letter-spacing:2px;color:var(--muted);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.ov-card .t b{font-size:16px;font-family:Georgia,serif;color:var(--grass-deep)}
+.train-row{display:flex;align-items:center;gap:12px;margin:10px 0}
+.train-row .code{background:var(--night);color:#F3E4B8;font-family:Georgia,serif;font-size:13px;font-weight:700;padding:3px 10px;border-radius:6px;letter-spacing:1px;white-space:nowrap}
+.train-row .seg{font-size:13px;line-height:1.5}
+.train-row .seg .st{font-weight:600}
+.train-row .seg .tm{font-family:Georgia,serif;color:var(--brick);font-weight:700}
+.train-row .arrow{color:var(--grass-deep);font-size:18px}
+.ov-card .note{font-size:12.5px;color:var(--muted);margin-top:4px}
+.weather-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.w-chip{font-size:11.5px;padding:3px 9px;border-radius:99px;border:1px solid var(--line);color:var(--night-2);background:var(--cream)}
+.w-chip.rain{color:#fff;background:var(--night-soft);border-color:var(--night-soft)}
+.budg-big{font-family:Georgia,serif;font-size:34px;font-weight:700;color:var(--brick);line-height:1.1}
+.budg-big small{font-size:13px;color:var(--muted);font-family:sans-serif;font-weight:400}
+.budg-bar{height:8px;background:var(--line);border-radius:99px;margin:12px 0 8px;overflow:hidden}
+.budg-bar i{display:block;height:100%;width:77%;background:linear-gradient(90deg,var(--grass),var(--grass-deep));border-radius:99px}
+/* ===== ITINERARY ===== */
+.day-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.day-tab{background:var(--card);border:1.5px solid var(--line);border-radius:12px;padding:14px 12px;cursor:pointer;text-align:left;transition:all .2s}
+.day-tab:hover{border-color:var(--grass)}
+.day-tab.active{background:var(--night);border-color:var(--night);color:#F3E4B8}
+.day-tab .d{font-size:11px;letter-spacing:1.5px;color:var(--muted)}
+.day-tab.active .d{color:#B9C6DE}
+.day-tab .dt{font-family:Georgia,serif;font-size:15px;font-weight:700;margin-top:2px}
+.day-tab .th{font-size:12.5px;margin-top:4px;color:var(--night-2);line-height:1.35}
+.day-tab.active .th{color:#EFDCA8}
+.day-tab .wd{font-size:11px;color:var(--grass-deep);margin-top:3px}
+.day-tab.active .wd{color:var(--grass-soft)}
+.day-detail{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px;box-shadow:0 10px 30px rgba(35,50,76,.06)}
+.day-head{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:18px;border-bottom:1px dashed var(--line)}
+.day-head .big-date{font-family:Georgia,serif;font-size:38px;font-weight:700;color:var(--grass-deep);line-height:1}
+.day-head .day-theme{font-size:20px;font-weight:700;color:var(--night);letter-spacing:1px}
+.day-head .day-weather{font-size:12.5px;color:var(--muted);margin-top:4px}
+.act{display:grid;grid-template-columns:74px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid #F0EAD9;position:relative}
+.act:last-child{border-bottom:none}
+.act .tm{font-family:Georgia,serif;font-weight:700;font-size:14px;color:var(--brick);padding-top:2px}
+.act .nm{font-weight:600;font-size:15.5px;color:var(--ink)}
+.act .meta{font-size:12px;color:var(--muted);margin-top:2px;display:flex;flex-wrap:wrap;gap:6px 14px}
+.act .meta span b{color:var(--night-2)}
+.act .note{font-size:13px;color:#5C564B;margin-top:6px;line-height:1.65}
+.act .cost{display:inline-block;font-size:12px;color:var(--brick);font-family:Georgia,serif;font-weight:700}
+.act .meal{background:var(--cream);border:1px dashed var(--grass);border-radius:10px;padding:10px 14px;margin-top:8px;font-size:12.5px;color:#5C564B}
+.act .meal b{color:var(--grass-deep)}
+/* ===== FOOD ===== */
+.food-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.food-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;position:relative;overflow:hidden;transition:transform .2s}
+.food-card:hover{transform:translateY(-3px)}
+.food-card .emo{font-size:30px;margin-bottom:10px}
+.food-card h3{font-size:15.5px;color:var(--night);margin-bottom:4px}
+.food-card .sub{font-size:12px;color:var(--grass-deep);margin-bottom:8px;letter-spacing:1px}
+.food-card p{font-size:12.5px;color:var(--muted);line-height:1.6}
+.food-card .price{position:absolute;top:16px;right:16px;font-family:Georgia,serif;font-size:15px;font-weight:700;color:var(--brick)}
+/* ===== HOTELS ===== */
+.hotels-scroll{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.hotel-card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.hotel-card .top{background:linear-gradient(135deg,var(--night),var(--night-2));padding:16px 18px;color:#F3E4B8}
+.hotel-card .top .nm{font-size:14.5px;font-weight:700;color:#FBF4DF;line-height:1.45}
+.hotel-card .top .area{font-size:12px;color:#B9C6DE;margin-top:3px}
+.hotel-card .body{padding:14px 18px}
+.hotel-card .hl{font-size:12.5px;color:#5C564B;line-height:1.65}
+.hotel-card .foot{display:flex;justify-content:space-between;align-items:center;padding:10px 18px;background:var(--cream);border-top:1px solid var(--line)}
+.hotel-card .foot .ppn{font-family:Georgia,serif;font-size:18px;font-weight:700;color:var(--brick)}
+.hotel-card .foot .ppn small{font-size:11px;color:var(--muted);font-family:sans-serif;font-weight:400}
+.hotel-card .foot .rate{font-size:12.5px;color:var(--night-2)}
+/* ===== BUDGET ===== */
+.budget-wrap{display:grid;grid-template-columns:340px 1fr;gap:30px;align-items:center}
+.donut-box{position:relative;width:250px;height:250px;margin:0 auto}
+.donut-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.donut-center .tot{font-family:Georgia,serif;font-size:34px;font-weight:700;color:var(--night)}
+.donut-center .lbl{font-size:12px;color:var(--muted);letter-spacing:1px}
+.budg-table{width:100%;border-collapse:collapse}
+.budg-table th{font-size:12px;color:var(--muted);text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);letter-spacing:1px}
+.budg-table td{padding:10px 12px;border-bottom:1px solid #F0EAD9;font-size:13.5px}
+.budg-table td:last-child{text-align:right;font-family:Georgia,serif;font-weight:700;color:var(--ink);white-space:nowrap}
+.budg-table tr.cat td:first-child{font-weight:700;color:var(--night)}
+.budg-table tr.total td{border-top:2px solid var(--night);border-bottom:none;font-weight:800;font-size:15px;color:var(--brick)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:14px;justify-content:center}
+.legend span{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px}
+.legend i{width:10px;height:10px;border-radius:3px;display:inline-block}
+/* ===== TIPS ===== */
+.tips-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.tip{display:flex;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.tip .ico{flex-shrink:0;width:26px;height:26px;border-radius:8px;background:var(--cream);display:flex;align-items:center;justify-content:center;font-size:14px}
+.tip p{font-size:13px;color:#4A453C;line-height:1.6}
+.tip p b{color:var(--night)}
+/* ===== FOOTER ===== */
+footer{background:var(--night);color:#B9C6DE;text-align:center;padding:34px 20px;font-size:12.5px;letter-spacing:1px;margin-top:20px}
+footer b{color:#F3E4B8}
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .ov-grid{grid-template-columns:1fr 1fr}
+  .ov-grid .ov-card:first-child{grid-column:1/-1}
+  .food-grid{grid-template-columns:repeat(2,1fr)}
+  .hotels-scroll{grid-template-columns:1fr}
+  .budget-wrap{grid-template-columns:1fr}
+  .day-tabs{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:560px){
+  .hero{padding:90px 0 140px}
+  .hero h1{font-size:30px}
+  .ov-grid{grid-template-columns:1fr}
+  .ov-grid .ov-card:first-child{grid-column:auto}
+  .food-grid{grid-template-columns:1fr}
+  .tips-grid{grid-template-columns:1fr}
+  .day-detail{padding:18px}
+  .act{grid-template-columns:56px 1fr;gap:10px}
+  section{padding:40px 0}
+}
+@media print{
+  .day-tab{display:none}
+  .day-tabs{display:none}
+  body{background:#fff}
+  section{padding:24px 0}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HERO：草原天际线 ===== -->
+<header class="hero">
+  <svg class="hero-sky" viewBox="0 0 1440 520" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <circle cx="1080" cy="290" r="70" fill="#F5D98B"/>
+    <circle cx="1080" cy="290" r="96" fill="#F5D98B" opacity="0.22"/>
+    <path d="M0,355 Q180,295 360,340 T720,330 T1080,335 T1440,325 L1440,520 L0,520 Z" fill="#31466E" opacity="0.5"/>
+    <path d="M0,405 Q220,335 440,390 T880,375 T1260,390 L1440,375 L1440,520 L0,520 Z" fill="#A87B2F"/>
+    <path d="M0,468 Q300,408 640,452 T1440,438 L1440,520 L0,520 Z" fill="#8A6427"/>
+    <g transform="translate(1120,318)">
+      <path d="M-36,82 Q-36,26 0,15 Q36,26 36,82 Z" fill="#FBF4DF"/>
+      <rect x="-38" y="82" width="76" height="14" fill="#E3C77E"/>
+      <line x1="0" y1="15" x2="0" y2="-8" stroke="#8A6427" stroke-width="3"/>
+      <circle cx="-13" cy="58" r="4" fill="#23324C"/>
+    </g>
+    <g transform="translate(175,388)">
+      <path d="M-22,56 Q-22,20 0,13 Q22,20 22,56 Z" fill="#EFDCA8"/>
+      <rect x="-24" y="56" width="48" height="9" fill="#D9B96B"/>
+      <line x1="0" y1="13" x2="0" y2="-4" stroke="#8A6427" stroke-width="2"/>
+    </g>
+    <path d="M330,138 Q346,124 362,136 Q350,130 346,138 M362,136 Q375,122 390,133 Q378,128 374,136 Z" fill="#2B3D5E" opacity="0.65"/>
+    <ellipse cx="560" cy="148" rx="72" ry="15" fill="#F8F1E0" opacity="0.3"/>
+    <ellipse cx="890" cy="108" rx="52" ry="11" fill="#F8F1E0" opacity="0.26"/>
+  </svg>
+  <div class="hero-inner">
+    <div class="hero-kicker">青城 · 呼和浩特</div>
+    <h1>金秋草原 · 4天3晚</h1>
+    <p class="hero-sub">2026.09.18 — 09.21 · 一人行 · 草原 / 蒙餐 / 人文</p>
+    <div class="hero-meta">
+      <div class="chip">去 Z350 卧铺</div>
+      <div class="chip">返 D1620 动车</div>
+      <div class="chip">预算约 ¥1545</div>
+      <div class="chip">市区住 2 晚</div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== 概览 ===== -->
+<section class="overview">
+  <div class="wrap">
+    <div class="ov-grid">
+      <div class="ov-card">
+        <div class="t"><b>01</b> 大交通 · 12306 实查</div>
+        <div class="train-row">
+          <span class="code">Z350</span>
+          <span class="seg"><span class="st">大明湖</span><br><span class="tm">20:40</span> · 09/18</span>
+          <span class="arrow">→</span>
+          <span class="seg"><span class="st">呼和浩特东</span><br><span class="tm">12:28</span> · 09/19</span>
+        </div>
+        <div class="train-row">
+          <span class="code">D1620</span>
+          <span class="seg"><span class="st">呼和浩特东</span><br><span class="tm">13:50</span> · 09/21</span>
+          <span class="arrow">→</span>
+          <span class="seg"><span class="st">济南东</span><br><span class="tm">21:02</span> · 09/21</span>
+        </div>
+        <div class="note">去程夕发朝至卧铺过夜；返程动车约 7 小时。车票已购，预算不含大交通。</div>
+      </div>
+      <div class="ov-card">
+        <div class="t"><b>02</b> 天气 · 中国天气网实查</div>
+        <div style="font-family:Georgia,serif;font-size:26px;font-weight:700;color:var(--night)">前晴后雨</div>
+        <div style="font-size:12.5px;color:var(--muted);margin-top:2px">日均 20℃ / 11℃，昼夜温差大</div>
+        <div class="weather-chips">
+          <span class="w-chip">09/19 多云转晴 22/12</span>
+          <span class="w-chip">09/20 阴 19/12</span>
+          <span class="w-chip rain">09/21 雨 16/10</span>
+        </div>
+        <div class="note" style="margin-top:8px">21 日返程有雨降温，带伞；草原比市区再冷约 5℃。</div>
+      </div>
+      <div class="ov-card">
+        <div class="t"><b>03</b> 预算 · 参考</div>
+        <div class="budg-big">¥1545<small> / 人（不含大交通）</small></div>
+        <div class="budg-bar"><i></i></div>
+        <div class="note">预算上限 ¥2000，已含草原一日游 + 可选骑马大圈；省一点可压到 ¥1200。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 行程 ===== -->
+<section id="itinerary">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="no">ITINERARY</span>
+      <h2>每日行程</h2>
+      <span class="line"></span>
+    </div>
+    <div class="day-tabs" id="dayTabs"></div>
+    <div class="day-detail" id="dayDetail"></div>
+  </div>
+</section>
+
+<!-- ===== 美食 ===== -->
+<section id="food">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="no">MONGOLIAN CUISINE</span>
+      <h2>蒙味巡礼</h2>
+      <span class="line"></span>
+    </div>
+    <div class="food-grid" id="foodGrid"></div>
+  </div>
+</section>
+
+<!-- ===== 住宿 ===== -->
+<section id="hotels">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="no">STAY</span>
+      <h2>住宿建议</h2>
+      <span class="line"></span>
+    </div>
+    <div class="hotels-scroll" id="hotelGrid"></div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:12px">推荐住玉泉区大召寺一带：步行可覆盖大召寺、塞上老街、五塔寺，地铁 1 号线直达呼和浩特东站，往返便捷。以上为参考价，以实际预订为准。</p>
+  </div>
+</section>
+
+<!-- ===== 预算 ===== -->
+<section id="budget">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="no">BUDGET</span>
+      <h2>预算明细</h2>
+      <span class="line"></span>
+    </div>
+    <div class="budget-wrap">
+      <div>
+        <div class="donut-box">
+          <svg id="donut" width="250" height="250" viewBox="0 0 250 250"></svg>
+          <div class="donut-center">
+            <div class="tot" id="donutTotal">¥1545</div>
+            <div class="lbl">总预算（不含大交通）</div>
+          </div>
+        </div>
+        <div class="legend" id="donutLegend"></div>
+      </div>
+      <table class="budg-table" id="budgTable"></table>
+    </div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:18px;line-height:1.7">
+      可靠度说明：车次时刻为 12306 实查；天气为中国天气网实查；大召寺门票、草原团费、酒店价格为搜索参考价，以实际预订为准。可选加项（未计入总预算）：诈马宴 ¥298-398、五塔寺门票约 ¥25。
+    </p>
+  </div>
+</section>
+
+<!-- ===== TIPS ===== -->
+<section id="tips">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="no">TIPS</span>
+      <h2>出行贴士</h2>
+      <span class="line"></span>
+    </div>
+    <div class="tips-grid" id="tipsGrid"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    呼和浩特 · 金秋草原 4天3晚 ｜ 2026.09.18 — 09.21 ｜ <b>一个人也要好好玩</b><br>
+    数据来源：12306（车次）、中国天气网（天气）、百度搜索（门票/团费/酒店参考价）｜ 生成于 2026-09-11
+  </div>
+</footer>
+
+<script type="application/json" id="tripData">
+{
+ "title": "呼和浩特 4天3晚 金秋草原",
+ "dateRange": "2026-09-18 ~ 09-21",
+ "travelers": "1人",
+ "generationDate": "2026-09-11",
+ "weather": {
+  "summary": "前晴后雨：19日多云转晴、20日阴、21日降雨降温（16/10℃）",
+  "avgHigh": 20,
+  "avgLow": 11,
+  "rainfall": "9/21有雨，返程日带伞",
+  "clothing": "秋装为主：白天薄外套/卫衣，早晚加冲锋衣或抓绒；草原更冷，备厚外套",
+  "tips": "9月中下旬呼和浩特昼夜温差大（10-22℃），草原海拔高气温更低（5-15℃），务必带一件保暖外套；紫外线强，注意防晒"
+ },
+ "days": [
+  {
+   "date": "09/18",
+   "weekday": "周五",
+   "theme": "夜车出发·卧铺入蒙",
+   "weather": {
+    "icon": "cloudy",
+    "high": 23,
+    "low": 12
+   },
+   "activities": [
+    {
+     "time": "18:30",
+     "name": "济南市区出发，前往大明湖站",
+     "duration": "1h",
+     "cost": 20,
+     "transport": "公交/打车",
+     "note": "大明湖站（原济南东站）为普速站，站内餐饮选择少，建议吃饱再进站或自带零食"
+    },
+    {
+     "time": "20:40",
+     "name": "Z350 大明湖→呼和浩特东（卧铺）",
+     "duration": "15h48m",
+     "cost": 0,
+     "transport": "火车（已购票）",
+     "note": "夕发朝至：20:40发车，次日12:28到。上车铺好床直接睡，一觉到内蒙古；建议带拖鞋、耳塞、眼罩"
+    }
+   ]
+  },
+  {
+   "date": "09/19",
+   "weekday": "周六",
+   "theme": "青城人文·蒙味初尝",
+   "weather": {
+    "icon": "partlyCloudy",
+    "high": 22,
+    "low": 12
+   },
+   "activities": [
+    {
+     "time": "12:28",
+     "name": "抵达呼和浩特东站",
+     "duration": "30m",
+     "cost": 5,
+     "transport": "地铁1号线",
+     "note": "地铁1号线直达市区，支付宝/微信乘车码刷闸即可；先到大召寺附近酒店寄存行李"
+    },
+    {
+     "time": "13:30",
+     "name": "午餐：老绥元稍麦",
+     "duration": "1h",
+     "cost": 40,
+     "transport": "步行",
+     "note": "呼和浩特『稍麦第一街』就在塞上老街/通顺大巷；羊肉稍麦皮薄如纸+砖茶，一人一屉（8只）正合适",
+     "meal": {
+      "name": "老绥元稍麦",
+      "cuisine": "蒙式烧麦",
+      "perPerson": 40,
+      "recommended": "羊肉稍麦、砖茶",
+      "location": "通顺大巷/市区多家分店"
+     }
+    },
+    {
+     "time": "14:40",
+     "name": "内蒙古博物院（新馆）",
+     "duration": "2h",
+     "cost": 0,
+     "transport": "地铁1号线/打车",
+     "note": "免费但需微信『内蒙古博物院』公众号提前预约（可提前7天）；16:00停止入馆，周一闭馆（今天周六OK）。新馆在赛罕区新华东街76号，『天圆地方』建筑；镇馆之宝：鹰顶金冠饰（三楼融铸北疆1号厅）、黄金覆面、辽代彩绘木棺"
+    },
+    {
+     "time": "17:00",
+     "name": "大召寺（无量寺）",
+     "duration": "1h",
+     "cost": 35,
+     "transport": "打车约15元",
+     "note": "门票参考¥35，8:00-18:30开放（17:30停止售票）；藏传佛教格鲁派名寺，『银佛、龙雕、壁画』三绝，转经筒和藏式白塔很出片"
+    },
+    {
+     "time": "18:15",
+     "name": "塞上老街+通顺大巷漫步",
+     "duration": "1.5h",
+     "cost": 0,
+     "transport": "步行（紧邻大召寺）",
+     "note": "免费，青石板老街，两侧古建+特产店；『呼和浩特烧麦第一街』；傍晚亮灯后氛围最好，可顺路试吃牛肉干"
+    },
+    {
+     "time": "19:45",
+     "name": "晚餐：泽成冰煮羊",
+     "duration": "1.5h",
+     "cost": 90,
+     "transport": "步行/打车",
+     "note": "本地非遗老店，冰块煮羊肉+先喝汤再吃肉，锡林郭勒羔羊嫩而不膻；约68元/斤，一人一斤刚好",
+     "meal": {
+      "name": "泽成冰煮羊（公务员小区总店）",
+      "cuisine": "蒙式涮肉",
+      "perPerson": 90,
+      "recommended": "冰煮羊、羊肉串",
+      "location": "呼伦贝尔南路/公务员小区"
+     }
+    }
+   ]
+  },
+  {
+   "date": "09/20",
+   "weekday": "周日",
+   "theme": "金秋草原·纵马希拉穆仁",
+   "weather": {
+    "icon": "overcast",
+    "high": 19,
+    "low": 12
+   },
+   "activities": [
+    {
+     "time": "08:00",
+     "name": "市区集合出发（草原一日游）",
+     "duration": "2h",
+     "cost": 350,
+     "transport": "旅行社大巴（约90km）",
+     "note": "提前1-2天在美团/飞猪/携程预订希拉穆仁一日游（参考¥200-400，含往返车+下马酒+骑马基础体验+手把肉午餐+射箭）；9月淡季人少，选评价好的正规旅行社"
+    },
+    {
+     "time": "10:00",
+     "name": "希拉穆仁草原：下马酒迎宾",
+     "duration": "30m",
+     "cost": 0,
+     "transport": "团内",
+     "note": "蒙古族最高迎宾礼——下马酒（敬天敬地敬祖先，象征性抿一口即可），哈达献礼"
+    },
+    {
+     "time": "10:40",
+     "name": "骑马漫游草原",
+     "duration": "1.5h",
+     "cost": 150,
+     "transport": "马背",
+     "note": "小圈约¥100/大圈¥200-300，建议选大圈才能真正走进草原深处；9月下旬草已泛黄，金秋辽阔感依旧；穿长裤+防滑鞋，护具戴好"
+    },
+    {
+     "time": "12:30",
+     "name": "草原午餐：手把肉+奶茶",
+     "duration": "1.5h",
+     "cost": 0,
+     "transport": "团内（含餐）",
+     "note": "手把羊肉、奶茶、果条；想升级诈马宴（烤全羊+歌舞，¥298-398）可提前和旅行社说"
+    },
+    {
+     "time": "14:00",
+     "name": "蒙古族家访+敖包祈福",
+     "duration": "2h",
+     "cost": 0,
+     "transport": "团内",
+     "note": "进牧民家喝奶茶听故事，红格尔敖包山顶视野无敌；可体验射箭、勒勒车、蒙古袍拍照"
+    },
+    {
+     "time": "16:00",
+     "name": "金秋草原漫步+返程",
+     "duration": "3h",
+     "cost": 0,
+     "transport": "大巴返市区",
+     "note": "傍晚光线最柔和，金色草原+风车+羊群很出片；约19:00回到市区"
+    },
+    {
+     "time": "19:30",
+     "name": "晚餐：格日勒阿妈蒙古厨房",
+     "duration": "1.5h",
+     "cost": 70,
+     "transport": "打车",
+     "note": "网红蒙餐连锁，人均¥60-70：奶嚼口奶茶、手把肉、甜奶酪馅饼、烤羊排；部分店可免费穿蒙古袍拍照",
+     "meal": {
+      "name": "格日勒阿妈蒙古厨房",
+      "cuisine": "蒙餐",
+      "perPerson": 70,
+      "recommended": "奶嚼口奶茶、甜奶酪馅饼、手把肉、烤羊排",
+      "location": "新华大街/锡林郭勒北路等多家"
+     }
+    }
+   ]
+  },
+  {
+   "date": "09/21",
+   "weekday": "周一",
+   "theme": "老城收尾·返程济南",
+   "weather": {
+    "icon": "rainy",
+    "high": 16,
+    "low": 10
+   },
+   "activities": [
+    {
+     "time": "08:30",
+     "name": "退房寄存行李",
+     "duration": "30m",
+     "cost": 0,
+     "transport": "步行",
+     "note": "今天有雨降温（16/10℃），穿暖和，带伞"
+    },
+    {
+     "time": "09:00",
+     "name": "早餐：白老大羊杂碎+白焙子",
+     "duration": "40m",
+     "cost": 35,
+     "transport": "步行/打车",
+     "note": "本地人早餐标配：羊杂碎汤鲜料足，白焙子掰碎泡汤；或再吃一顿老绥元稍麦",
+     "meal": {
+      "name": "白老大羊杂碎",
+      "cuisine": "呼市早点",
+      "perPerson": 35,
+      "recommended": "羊杂碎、白焙子",
+      "location": "回民区宽巷子附近"
+     }
+    },
+    {
+     "time": "10:00",
+     "name": "宽巷子/塞上老街买特产",
+     "duration": "1.5h",
+     "cost": 200,
+     "transport": "步行",
+     "note": "一站式买齐：风干牛肉干（散装可试吃）、奶皮子礼盒（罕乌拉/格日勒阿妈）、冻干酸奶块（兰格格）、奶茶粉；宽巷子有大牧场特产店，可现场真空打包"
+    },
+    {
+     "time": "11:30",
+     "name": "午餐简餐+取行李",
+     "duration": "1h",
+     "cost": 30,
+     "transport": "步行",
+     "note": "简单吃点，回酒店取行李"
+    },
+    {
+     "time": "12:30",
+     "name": "前往呼和浩特东站",
+     "duration": "40m",
+     "cost": 5,
+     "transport": "地铁1号线",
+     "note": "预留充足时间，12:40前到站候车"
+    },
+    {
+     "time": "13:50",
+     "name": "D1620 呼和浩特东→济南东",
+     "duration": "7h12m",
+     "cost": 0,
+     "transport": "动车（已购票）",
+     "note": "二等座，21:02抵达济南东，晚饭可在车上解决"
+    }
+   ]
+  }
+ ],
+ "hotels": [
+  {
+   "name": "7天连锁酒店（呼和浩特云中路店）",
+   "area": "玉泉区·近大召寺/五塔寺",
+   "pricePerNight": 159,
+   "highlights": "经济连锁;位置核心;步行到大召寺",
+   "rating": "4.3"
+  },
+  {
+   "name": "汉庭酒店（呼和浩特大召寺店）",
+   "area": "玉泉区大北街13号",
+   "pricePerNight": 200,
+   "highlights": "评分4.6;大召寺旁;含早餐房型",
+   "rating": "4.6"
+  },
+  {
+   "name": "红格尔快捷酒店（通达南站店）",
+   "area": "青城公园商圈",
+   "pricePerNight": 150,
+   "highlights": "标间约150;闹中取静;免费停车",
+   "rating": "4.2"
+  }
+ ],
+ "budget": {
+  "transport": {
+   "items": [
+    {
+     "name": "市内交通（地铁+打车，4天）",
+     "cost": 60
+    }
+   ],
+   "subtotal": 60
+  },
+  "accommodation": {
+   "items": [
+    {
+     "name": "经济酒店 2晚（参考¥180/晚）",
+     "cost": 360
+    }
+   ],
+   "subtotal": 360
+  },
+  "food": {
+   "items": [
+    {
+     "name": "餐饮 3天（稍麦/冰煮羊/格日勒阿妈/简餐）",
+     "cost": 290
+    }
+   ],
+   "subtotal": 290
+  },
+  "tickets": {
+   "items": [
+    {
+     "name": "大召寺门票",
+     "cost": 35
+    },
+    {
+     "name": "内蒙古博物院（免费需预约）",
+     "cost": 0
+    }
+   ],
+   "subtotal": 35
+  },
+  "other": {
+   "items": [
+    {
+     "name": "希拉穆仁草原一日游（含午餐+基础项目）",
+     "cost": 350
+    },
+    {
+     "name": "骑马升级大圈（可选）",
+     "cost": 150
+    },
+    {
+     "name": "特产伴手礼（牛肉干+奶皮子）",
+     "cost": 200
+    },
+    {
+     "name": "杂项（零食/寄存/纪念品）",
+     "cost": 100
+    }
+   ],
+   "subtotal": 800
+  },
+  "total": 1545,
+  "perPerson": 1545
+ },
+ "tips": [
+  "大交通已购：去程Z350（9/18 20:40大明湖→9/19 12:28呼和浩特东，卧铺）、返程D1620（9/21 13:50呼和浩特东→21:02济南东，二等座），本次预算不含大交通",
+  "9月下旬草原已入金秋，草色泛黄——想拍『绿草如茵』请调整预期，但金秋草原的光线、辽阔感和骑马体验不打折；想拍绿色草原建议7-8月再来",
+  "昼夜温差大：市区白天20℃+晚上10℃，草原更低（5-15℃），必带一件冲锋衣/抓绒；骑马务必穿长裤+防滑鞋",
+  "内蒙古博物院免费但必须微信『内蒙古博物院』公众号提前预约（可提前7天），16:00停止入馆、周一闭馆——已安排在周六下午，记得提前约",
+  "草原一日游建议提前1-2天在美团/飞猪/携程预订（参考¥200-400），认准评价好的正规旅行社；9月淡季人少，骑马、拍照体验比旺季好",
+  "9/21预报有雨降温，返程日以室内和老街为主，带伞；D1620 13:50发车，建议12:40前到呼和浩特东站（地铁1号线直达）",
+  "一人食友好推荐：老绥元稍麦（¥40）、泽成冰煮羊（¥90）、格日勒阿妈（¥70）、白老大羊杂碎（¥35），人均都不高，放心点",
+  "特产购买：塞上老街/宽巷子一站式搞定——风干牛肉干（散装可试吃）、奶皮子礼盒、冻干酸奶块、奶茶粉；要求真空打包或冷链邮寄都方便",
+  "呼和浩特地铁1号线东西贯穿市区（呼和浩特东站↔内蒙古博物院↔市区），支付宝/微信乘车码直接刷，无需买卡",
+  "卧铺过夜建议：自带拖鞋、耳塞、眼罩；车厢冷气足，带件薄外套；20:40发车，建议19:30前到大明湖站",
+  "预算说明：合计约¥1545（含可选骑马大圈），若跳过骑马升级+控制特产，可压到¥1200以内；大召寺门票、草原团费、酒店为参考价，以实际预订为准"
+ ]
+}
+</script>
+
+<script>
+(function(){
+  'use strict';
+  var data = JSON.parse(document.getElementById('tripData').textContent);
+  var $ = function(id){ return document.getElementById(id); };
+  var DEG = '\u00b0';
+  var YEN = '\u00a5';
+
+  function wIcon(w){
+    var map = { sunny:'\u2600\ufe0f', cloudy:'\u26c5', overcast:'\u2601\ufe0f', rainy:'\ud83c\udf27\ufe0f', stormy:'\u26c8\ufe0f', snowy:'\u2744\ufe0f', partlyCloudy:'\ud83c\udf24\ufe0f' };
+    return map[w] || '\u2601\ufe0f';
+  }
+
+  // ---------- 行程 ----------
+  var tabsEl = $('dayTabs');
+  var detailEl = $('dayDetail');
+
+  function renderTabs(){
+    var h = '';
+    for (var i = 0; i < data.days.length; i++){
+      var d = data.days[i];
+      h += '<div class="day-tab' + (i===0 ? ' active' : '') + '" data-i="' + i + '">'
+        + '<div class="d">DAY ' + (i+1) + ' \u00b7 ' + d.weekday + '</div>'
+        + '<div class="dt">' + d.date + '</div>'
+        + '<div class="th">' + d.theme + '</div>'
+        + '<div class="wd">' + wIcon(d.weather.icon) + ' ' + d.weather.high + DEG + ' / ' + d.weather.low + DEG + '</div>'
+        + '</div>';
+    }
+    tabsEl.innerHTML = h;
+    var els = tabsEl.querySelectorAll('.day-tab');
+    for (var j = 0; j < els.length; j++){
+      (function(el){
+        el.addEventListener('click', function(){
+          selectDay(parseInt(this.getAttribute('data-i'), 10));
+        });
+      })(els[j]);
+    }
+  }
+
+  function renderDay(i){
+    var d = data.days[i];
+    var acts = '';
+    for (var k = 0; k < d.activities.length; k++){
+      var a = d.activities[k];
+      acts += '<div class="act">'
+        + '<div class="tm">' + a.time + '</div>'
+        + '<div>'
+        + '<div class="nm">' + a.name + ' <span class="cost">' + (a.cost > 0 ? YEN + a.cost : '免费') + '</span></div>'
+        + '<div class="meta"><span>\u23f1 ' + a.duration + '</span>';
+      if (a.transport) acts += '<span>\ud83d\ude87 ' + a.transport + '</span>';
+      acts += '</div><div class="note">' + a.note + '</div>';
+      if (a.meal){
+        acts += '<div class="meal"><b>' + a.meal.name + '</b> \u00b7 ' + a.meal.cuisine + ' \u00b7 人均 ' + YEN + a.meal.perPerson
+          + '<br>\u2b50 推荐：' + a.meal.recommended
+          + (a.meal.location ? '<br>\ud83d\udccd ' + a.meal.location : '') + '</div>';
+      }
+      acts += '</div></div>';
+    }
+    detailEl.innerHTML = '<div class="day-head">'
+      + '<div class="big-date">' + d.date.slice(3) + '</div>'
+      + '<div><div class="day-theme">' + d.theme + '</div>'
+      + '<div class="day-weather">' + wIcon(d.weather.icon) + ' ' + d.weekday + ' \u00b7 高 ' + d.weather.high + DEG + ' / 低 ' + d.weather.low + DEG + ' \u00b7 ' + d.weather.icon + '</div></div>'
+      + '</div>' + acts;
+  }
+
+  function selectDay(i){
+    var els = tabsEl.querySelectorAll('.day-tab');
+    for (var j = 0; j < els.length; j++){
+      els[j].classList.toggle('active', j === i);
+    }
+    renderDay(i);
+  }
+
+  // ---------- 美食 ----------
+  function renderFood(){
+    var meals = [];
+    for (var i = 0; i < data.days.length; i++){
+      var acts = data.days[i].activities;
+      for (var j = 0; j < acts.length; j++){
+        if (acts[j].meal) meals.push(acts[j].meal);
+      }
+    }
+    var emo = { '\u8499\u5f0f\u70e7\u9ea6':'\ud83e\udd5f', '\u8499\u5f0f\u6dae\u8089':'\ud83c\udf72', '\u8499\u9910':'\ud83c\udf56', '\u547c\u5e02\u65e9\u70b9':'\ud83c\udf5c' };
+    var sub = { '\u8499\u5f0f\u70e7\u9ea6':'\u76ae\u8584\u5982\u7eb8\u00b7\u7816\u8336\u914d', '\u8499\u5f0f\u6dae\u8089':'\u975e\u9057\u8001\u5e97\u00b7\u5148\u559d\u6c64', '\u8499\u9910':'\u8499\u53e4\u65cf\u5bb6\u5e38\u5473', '\u547c\u5e02\u65e9\u70b9':'\u672c\u5730\u4eba\u65e5\u5e38' };
+    var h = '';
+    for (var k = 0; k < meals.length; k++){
+      var m = meals[k];
+      h += '<div class="food-card"><span class="price">\u4eba\u5747 ' + YEN + m.perPerson + '</span>'
+        + '<div class="emo">' + (emo[m.cuisine] || '\ud83c\udf7d\ufe0f') + '</div>'
+        + '<h3>' + m.name + '</h3>'
+        + '<div class="sub">' + (sub[m.cuisine] || m.cuisine) + '</div>'
+        + '<p>\u2b50 ' + m.recommended + '</p>'
+        + (m.location ? '<p style="margin-top:4px">\ud83d\udccd ' + m.location + '</p>' : '')
+        + '</div>';
+    }
+    $('foodGrid').innerHTML = h;
+  }
+
+  // ---------- 住宿 ----------
+  function renderHotels(){
+    var h = '';
+    for (var i = 0; i < data.hotels.length; i++){
+      var ht = data.hotels[i];
+      h += '<div class="hotel-card">'
+        + '<div class="top"><div class="nm">' + ht.name + '</div><div class="area">' + ht.area + '</div></div>'
+        + '<div class="body"><div class="hl">' + ht.highlights.split(';').join(' \u00b7 ') + '</div></div>'
+        + '<div class="foot"><div class="ppn">' + YEN + ht.pricePerNight + '<small> /晚起</small></div>'
+        + '<div class="rate">\u2b50 ' + ht.rating + '</div></div>'
+        + '</div>';
+    }
+    $('hotelGrid').innerHTML = h;
+  }
+
+  // ---------- 预算 ----------
+  var cats = [
+    { key:'transport', label:'市内交通' },
+    { key:'accommodation', label:'住宿' },
+    { key:'food', label:'餐饮' },
+    { key:'tickets', label:'门票' },
+    { key:'other', label:'其他' }
+  ];
+  var colors = ['#8FA3C4', '#31466E', '#C99B45', '#A4503F', '#E3C77E'];
+
+  function renderDonut(){
+    var b = data.budget;
+    var total = b.total;
+    var R = 90, C = 2 * Math.PI * R;
+    var svg = '<circle cx="125" cy="125" r="' + R + '" fill="none" stroke="#F0EAD9" stroke-width="34"/>';
+    var angle = -90;
+    for (var i = 0; i < cats.length; i++){
+      var val = b[cats[i].key].subtotal;
+      var frac = val / total;
+      var len = frac * C;
+      svg += '<circle cx="125" cy="125" r="' + R + '" fill="none" stroke="' + colors[i] + '" stroke-width="34"'
+        + ' stroke-dasharray="' + len.toFixed(1) + ' ' + C.toFixed(1) + '"'
+        + ' transform="rotate(' + angle.toFixed(1) + ' 125 125)"/>';
+      angle += frac * 360;
+    }
+    $('donut').innerHTML = svg;
+    $('donutTotal').textContent = YEN + total;
+    var lg = '';
+    for (var j = 0; j < cats.length; j++){
+      lg += '<span><i style="background:' + colors[j] + '"></i>' + cats[j].label + ' ' + YEN + b[cats[j].key].subtotal + '</span>';
+    }
+    $('donutLegend').innerHTML = lg;
+  }
+
+  function renderTable(){
+    var b = data.budget;
+    var h = '<tr><th>\u5206\u7c7b</th><th>\u7ec6\u9879</th><th>\u91d1\u989d</th></tr>';
+    for (var i = 0; i < cats.length; i++){
+      var c = cats[i];
+      var items = b[c.key].items;
+      var names = [];
+      for (var j = 0; j < items.length; j++) names.push(items[j].name);
+      h += '<tr class="cat"><td>' + c.label + '</td><td>' + names.join('\uff1b') + '</td><td>' + YEN + b[c.key].subtotal + '</td></tr>';
+    }
+    h += '<tr class="total"><td>\u5408\u8ba1\uff08\u4e0d\u542b\u5927\u4ea4\u901a\uff09</td><td>\u4eba\u5747\u8d39\u7528</td><td>' + YEN + b.total + ' / \u4eba</td></tr>';
+    $('budgTable').innerHTML = h;
+  }
+
+  // ---------- Tips ----------
+  function renderTips(){
+    var icons = ['\ud83d\ude86','\ud83c\udf42','\ud83e\udde5','\ud83c\udfdb\ufe0f','\ud83d\udc0e','\u2601\ufe0f','\ud83c\udf7d\ufe0f','\ud83c\udf81','\ud83d\ude87','\ud83d\udecf\ufe0f','\ud83d\udcb0'];
+    var h = '';
+    for (var i = 0; i < data.tips.length; i++){
+      h += '<div class="tip"><div class="ico">' + (icons[i] || '\ud83d\udca1') + '</div><p>' + data.tips[i] + '</p></div>';
+    }
+    $('tipsGrid').innerHTML = h;
+  }
+
+  // ---------- init ----------
+  renderTabs();
+  renderDay(0);
+  renderFood();
+  renderHotels();
+  renderDonut();
+  renderTable();
+  renderTips();
+})();
+</script>
+</body>
+</html>

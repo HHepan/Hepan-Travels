@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>阿何的旅行地图</title>
+<style>
+:root{
+  --ink:#2C2A26; --muted:#7A7468; --line:#E7E0D2; --cream:#FAF7EF; --card:#FFFFFF;
+  --accent:#A87B2F; --accent-2:#31466E; --brick:#A4503F;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Segoe UI",sans-serif;
+  background:var(--cream); color:var(--ink); line-height:1.7; -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.serif{font-family:"Noto Serif SC","Songti SC","SimSun","STSong",serif}
+.wrap{max-width:960px;margin:0 auto;padding:0 22px}
+/* ===== HEADER ===== */
+header{position:relative;overflow:hidden;background:linear-gradient(160deg,#2C3A52 0%,#4A5F7E 45%,#B98A3E 100%);padding:90px 0 100px;text-align:center;color:#FBF4DF}
+header .kicker{letter-spacing:9px;font-size:13px;color:#D9C79A;margin-bottom:16px}
+header h1{font-size:40px;font-weight:900;letter-spacing:5px}
+header p{color:#E5D5AC;margin-top:12px;font-size:14px;letter-spacing:2px}
+/* ===== 卡片 ===== */
+.cards{display:grid;grid-template-columns:1fr;gap:18px;margin-top:-46px;position:relative;z-index:5;padding-bottom:70px}
+.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 12px 32px rgba(44,42,38,.1);transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(44,42,38,.16)}
+.card .strip{height:6px}
+.card .body{display:flex;gap:24px;padding:26px 28px;align-items:center}
+.card .date{font-family:Georgia,serif;font-size:15px;font-weight:700;color:var(--accent);white-space:nowrap}
+.card .info{flex:1}
+.card .info h2{font-size:20px;letter-spacing:1px;color:var(--ink)}
+.card .info .tag{font-size:12.5px;color:var(--muted);margin-top:4px}
+.card .info .tags{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.card .info .tags span{font-size:11.5px;background:var(--cream);border:1px solid var(--line);border-radius:99px;padding:2px 10px;color:#6B6252}
+.card .arrow{font-size:22px;color:var(--line);transition:transform .2s}
+.card:hover .arrow{transform:translateX(5px);color:var(--accent)}
+/* ===== 空位 ===== */
+.placeholder{border:1.5px dashed var(--line);border-radius:16px;padding:26px 28px;color:var(--muted);font-size:13.5px;background:rgba(255,255,255,.4);display:flex;align-items:center;gap:14px}
+.placeholder .plus{font-size:26px;color:var(--line)}
+/* ===== FOOTER ===== */
+footer{text-align:center;color:var(--muted);font-size:12px;letter-spacing:1px;padding:30px 0 50px}
+@media(max-width:560px){
+  header{padding:70px 0 80px}
+  header h1{font-size:28px}
+  .card .body{flex-direction:column;align-items:flex-start;gap:8px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="kicker">HEPAN · TRAVELS</div>
+    <h1>阿何的旅行地图</h1>
+    <p>把走过的路，都留在这里</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="cards">
+
+    <a class="card" href="呼和浩特-2026-09/呼和浩特-4天旅行计划">
+      <div class="strip" style="background:linear-gradient(90deg,#C99B45,#8A6427)"></div>
+      <div class="body">
+        <div class="date">2026.09<br>呼和浩特</div>
+        <div class="info">
+          <h2>呼和浩特 · 金秋草原 4天3晚</h2>
+          <div class="tag">2026.09.18 — 09.21 ｜ Z350 卧铺去 · D1620 动车返 ｜ 预算 ¥1545</div>
+          <div class="tags"><span>希拉穆仁草原</span><span>大召寺</span><span>内蒙古博物院</span><span>蒙餐</span></div>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+    </a>
+
+    <a class="card" href="青岛-2026-08/青岛-3天旅行攻略">
+      <div class="strip" style="background:linear-gradient(90deg,#1B6CA8,#F2A65A)"></div>
+      <div class="body">
+        <div class="date">2026.08<br>青岛</div>
+        <div class="info">
+          <h2>青岛 · 三日游攻略（存档）</h2>
+          <div class="tag">2026.08.05 — 08.07 ｜ G6911 去 · G6910 返 ｜ 总预算 ¥1340</div>
+          <div class="tags"><span>八大关</span><span>小麦岛日落</span><span>啤酒节</span><span>海鲜</span></div>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+    </a>
+
+    <div class="placeholder">
+      <span class="plus">＋</span>
+      <span>下一站，等你出发 —— 每一次旅行都会在这里留下一张卡片。</span>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  阿何的旅行地图 · Hepan-Travels ｜ 由 Lux 生成 · 2026
+</footer>
+
+</body>
+</html>

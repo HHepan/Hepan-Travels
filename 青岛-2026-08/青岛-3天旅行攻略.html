@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>青岛三日游攻略 · 存档</title>
+<style>
+:root{
+  --sea:#1B6CA8; --sea-2:#3A8FC4; --sea-deep:#123B5A; --sea-soft:#D8ECF7;
+  --sand:#FAF7F0; --card:#FFFFFF; --sun:#F2A65A; --sun-soft:#FBE3C8;
+  --ink:#20303E; --muted:#6B7A86; --line:#E2ECF2; --ok:#2E8B57;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Segoe UI",sans-serif;background:var(--sand);color:var(--ink);line-height:1.75;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.serif{font-family:"Noto Serif SC","Songti SC","SimSun","STSong",serif}
+.wrap{max-width:1000px;margin:0 auto;padding:0 22px}
+section{padding:52px 0}
+.section-head{display:flex;align-items:baseline;gap:14px;margin-bottom:26px}
+.section-head .no{font-family:Georgia,serif;font-size:14px;color:var(--sea);letter-spacing:2px}
+.section-head h2{font-size:25px;font-weight:700;letter-spacing:2px;color:var(--sea-deep)}
+.section-head .line{flex:1;height:1px;background:var(--line)}
+.badge{display:inline-block;background:var(--sun);color:#fff;font-size:12px;font-weight:700;padding:3px 12px;border-radius:99px;letter-spacing:1px}
+/* ===== HERO 海滨日出 ===== */
+.hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#123B5A 0%,#1B6CA8 52%,#F2A65A 88%,#FBE3C8 100%);padding:110px 0 150px;text-align:center}
+.hero svg{position:absolute;left:0;bottom:0;width:100%;height:100%;pointer-events:none}
+.hero-inner{position:relative;z-index:2}
+.hero-kicker{display:inline-block;color:#C9E6F5;letter-spacing:7px;font-size:13px;border:1px solid rgba(201,230,245,.45);border-radius:99px;padding:5px 20px;margin-bottom:20px;background:rgba(18,59,90,.28)}
+.hero h1{color:#FFF;font-size:42px;font-weight:900;letter-spacing:6px;text-shadow:0 3px 16px rgba(0,0,0,.3)}
+.hero-sub{color:#FDEBD2;margin-top:12px;font-size:14px;letter-spacing:3px}
+.hero-meta{display:flex;justify-content:center;gap:0;margin-top:24px;flex-wrap:wrap}
+.hero-meta .chip{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.32);color:#FFF7EA;padding:6px 16px;font-size:12.5px;letter-spacing:1px;backdrop-filter:blur(3px)}
+.hero-meta .chip+.chip{border-left:none}
+.hero-meta .chip:first-child{border-radius:8px 0 0 8px}
+.hero-meta .chip:last-child{border-radius:0 8px 8px 0}
+/* ===== 概览卡 ===== */
+.overview{margin-top:-88px;position:relative;z-index:5}
+.ov-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:16px}
+.ov-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;box-shadow:0 10px 30px rgba(18,59,90,.08)}
+.ov-card .t{font-size:12px;letter-spacing:2px;color:var(--muted);margin-bottom:12px}
+.ov-card .t b{font-size:16px;font-family:Georgia,serif;color:var(--sea)}
+.train-row{display:flex;align-items:center;gap:12px;margin:9px 0}
+.train-row .code{background:var(--sea-deep);color:#C9E6F5;font-family:Georgia,serif;font-size:13px;font-weight:700;padding:3px 10px;border-radius:6px;letter-spacing:1px;white-space:nowrap}
+.train-row .seg{font-size:13px;line-height:1.5}
+.train-row .seg .st{font-weight:600}
+.train-row .seg .tm{font-family:Georgia,serif;color:var(--sun);font-weight:700}
+.train-row .arrow{color:var(--sea);font-size:18px}
+.ov-card .note{font-size:12.5px;color:var(--muted);margin-top:4px}
+.ov-card .price-big{font-family:Georgia,serif;font-size:28px;font-weight:700;color:var(--sea);line-height:1.2}
+.ov-card .price-big small{font-size:12px;color:var(--muted);font-family:sans-serif;font-weight:400}
+.ov-card ul{list-style:none;font-size:13px;color:#40535F;margin-top:6px}
+.ov-card ul li{padding:3px 0;border-bottom:1px dashed var(--line)}
+.ov-card ul li:last-child{border-bottom:none}
+/* ===== 行程 ===== */
+.day-block{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 28px;margin-bottom:18px;box-shadow:0 8px 24px rgba(18,59,90,.05)}
+.day-head{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.day-head .day-no{background:var(--sea-deep);color:#FFF;font-family:Georgia,serif;font-size:16px;font-weight:700;width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center}
+.day-head .day-title{font-size:18px;font-weight:700;color:var(--sea-deep)}
+.day-head .day-sub{font-size:12.5px;color:var(--muted)}
+.tb{width:100%;border-collapse:collapse;font-size:13.5px}
+.tb th{font-size:12px;color:var(--muted);text-align:left;padding:9px 10px;border-bottom:2px solid var(--line);letter-spacing:1px}
+.tb td{padding:11px 10px;border-bottom:1px solid #EEF4F8;vertical-align:top}
+.tb tr:hover td{background:#F7FBFD}
+.tb .time{white-space:nowrap;font-family:Georgia,serif;font-weight:700;color:var(--sea);font-size:13px}
+.tb .cost{white-space:nowrap;font-weight:700;color:var(--sun);text-align:right}
+.tb .free{color:var(--ok)}
+.day-note{background:var(--sea-soft);border-radius:10px;padding:12px 16px;font-size:13px;color:#1D5A86;margin-top:14px}
+.day-note b{color:var(--sea-deep)}
+/* ===== 美食 ===== */
+.food-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.food-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.food-card .emo{font-size:24px}
+.food-card h4{font-size:14.5px;color:var(--sea-deep);margin:6px 0 2px}
+.food-card .pr{font-size:12.5px;color:var(--sun);font-weight:700}
+.food-card .wh{font-size:12px;color:var(--muted);margin-top:3px}
+.food-tip{background:linear-gradient(135deg,#FBE3C8,#FFF);border:1px solid #F2D3A8;border-radius:12px;padding:14px 18px;font-size:13.5px;color:#7A4E1E;margin-top:14px}
+/* ===== 预算 ===== */
+.budg-table{width:100%;border-collapse:collapse}
+.budg-table th{font-size:12px;color:var(--muted);text-align:left;padding:9px 12px;border-bottom:2px solid var(--line);letter-spacing:1px}
+.budg-table td{padding:10px 12px;border-bottom:1px solid #EEF4F8;font-size:13.5px}
+.budg-table td:last-child{text-align:right;font-family:Georgia,serif;font-weight:700}
+.budg-table tr.total td{border-top:2px solid var(--sea-deep);border-bottom:none;font-weight:800;font-size:16px;color:var(--sea)}
+.budg-table tr.cat td:first-child{font-weight:700;color:var(--sea-deep)}
+/* ===== 贴士 ===== */
+.tips-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.tip{display:flex;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:11px;padding:12px 15px;font-size:13px;color:#40535F}
+.tip .ico{flex-shrink:0}
+footer{background:var(--sea-deep);color:#A9CBE0;text-align:center;padding:32px 20px;font-size:12.5px;letter-spacing:1px}
+footer b{color:#FDEBD2}
+/* ===== 响应式 ===== */
+@media(max-width:900px){
+  .ov-grid{grid-template-columns:1fr 1fr}
+  .ov-grid .ov-card:first-child{grid-column:1/-1}
+  .food-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:560px){
+  .hero{padding:85px 0 130px}
+  .hero h1{font-size:28px}
+  .ov-grid{grid-template-columns:1fr}
+  .ov-grid .ov-card:first-child{grid-column:auto}
+  .food-grid{grid-template-columns:1fr}
+  .tips-grid{grid-template-columns:1fr}
+  .day-block{padding:18px}
+  section{padding:38px 0}
+  .tb{font-size:12.5px}
+}
+@media print{body{background:#fff}section{padding:22px 0}}
+</style>
+</head>
+<body>
+
+<!-- ===== HERO：海上日出 ===== -->
+<header class="hero">
+  <svg viewBox="0 0 1440 500" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <circle cx="720" cy="330" r="64" fill="#FFD9A0"/>
+    <circle cx="720" cy="330" r="86" fill="#FFD9A0" opacity="0.25"/>
+    <path d="M0,395 Q200,350 420,385 T900,375 T1440,385 L1440,500 L0,500 Z" fill="#1B6CA8" opacity="0.5"/>
+    <path d="M0,445 Q260,400 540,435 T1080,425 L1440,432 L1440,500 L0,500 Z" fill="#155A90"/>
+    <path d="M0,470 Q320,435 700,462 T1440,452 L1440,500 L0,500 Z" fill="#123B5A"/>
+    <g transform="translate(1180,300)">
+      <path d="M0,46 L18,12 L36,46 Z" fill="#FFF" opacity="0.9"/>
+      <path d="M0,46 L18,24 L36,46 Z" fill="#D8ECF7"/>
+    </g>
+    <path d="M470,180 Q484,166 500,178 Q488,171 486,180 M500,178 Q514,164 530,176 Q518,170 514,178 Z" fill="#C9E6F5" opacity="0.7"/>
+    <ellipse cx="300" cy="200" rx="66" ry="13" fill="#FFF" opacity="0.18"/>
+    <ellipse cx="980" cy="150" rx="54" ry="11" fill="#FFF" opacity="0.14"/>
+  </svg>
+  <div class="hero-inner">
+    <div class="hero-kicker">红瓦绿树 · 碧海蓝天</div>
+    <h1>青岛三日游 · 存档</h1>
+    <p class="hero-sub">2026.08.05 — 08.07 · 济南出发 · 一人行 · 老城 / 海风 / 啤酒节</p>
+    <div class="hero-meta">
+      <div class="chip">去 G6911</div>
+      <div class="chip">返 G6910</div>
+      <div class="chip">总预算约 ¥1340</div>
+      <div class="chip">已购票·已订房</div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== 概览 ===== -->
+<section class="overview">
+  <div class="wrap">
+    <div class="ov-grid">
+      <div class="ov-card">
+        <div class="t"><b>01</b> 车票 · 已购</div>
+        <div class="train-row">
+          <span class="code">G6911</span>
+          <span class="seg"><span class="st">济南东</span><br><span class="tm">08:30</span> · 08/05</span>
+          <span class="arrow">→</span>
+          <span class="seg"><span class="st">青岛站</span><br><span class="tm">10:12</span> · 08/05</span>
+        </div>
+        <div class="train-row">
+          <span class="code">G6910</span>
+          <span class="seg"><span class="st">青岛站</span><br><span class="tm">10:46</span> · 08/07</span>
+          <span class="arrow">→</span>
+          <span class="seg"><span class="st">济南东</span><br><span class="tm">12:36</span> · 08/07</span>
+        </div>
+        <div class="note">去程到青岛站（市中心），出站步行即达酒店；回程 12:36 到家吃午饭。</div>
+      </div>
+      <div class="ov-card">
+        <div class="t"><b>02</b> 住宿 · 已订</div>
+        <div style="font-weight:700;font-size:14.5px;color:var(--sea-deep)">格林风尚假日酒店</div>
+        <div style="font-size:12.5px;color:var(--muted);margin-top:2px">市南区天津路32号 · 特惠大床房</div>
+        <div class="price-big" style="margin-top:8px">¥388<small> / 2晚</small></div>
+        <div class="note">中山路步行街旁：步行到青岛站约5分钟、栈桥约10分钟，地铁1号线就在旁边。</div>
+      </div>
+      <div class="ov-card">
+        <div class="t"><b>03</b> 预算 · 参考</div>
+        <div class="price-big">¥1340<small> / 全程</small></div>
+        <div class="note" style="margin-top:6px">含高铁往返、住宿2晚、餐饮2天半、啤酒节；车票酒店已实付锁定。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 行程 ===== -->
+<section id="itinerary">
+  <div class="wrap">
+    <div class="section-head"><span class="no">ITINERARY</span><h2>三日行程</h2><span class="line"></span></div>
+
+    <div class="day-block">
+      <div class="day-head">
+        <div class="day-no">D1</div>
+        <div>
+          <div class="day-title">8/5 周三 · 老城 + 啤酒节</div>
+          <div class="day-sub">下午到，红瓦绿树初印象 + 第36届青岛国际啤酒节</div>
+        </div>
+      </div>
+      <table class="tb">
+        <tr><th style="width:130px">时间</th><th>活动</th><th style="width:80px">费用</th></tr>
+        <tr><td class="time">08:30~10:12</td><td><b>G6911 济南东→青岛站</b>，1h42min，二等座</td><td class="cost">¥159</td></tr>
+        <tr><td class="time">10:12~10:40</td><td>🚶 步行去酒店放行李（天津路约5分钟）</td><td class="free">—</td></tr>
+        <tr><td class="time">10:40~12:00</td><td>🏛️ <b>八大关</b>：地铁3号线→中山公园站，万国建筑博览馆，花石楼、公主楼，林荫路散步</td><td class="cost">免费/¥8.5</td></tr>
+        <tr><td class="time">12:00~13:00</td><td>🍜 午餐：八大关附近，或团岛市场买海鲜加工（离酒店地铁1站）</td><td class="cost">¥70</td></tr>
+        <tr><td class="time">13:00~14:30</td><td>🏖️ <b>第二海水浴场</b>：紧邻八大关，沙质细软，踩水踏浪下海游泳</td><td class="free">免费</td></tr>
+        <tr><td class="time">14:30~15:30</td><td>🏨 回酒店休息，避过正午最热时段</td><td class="free">—</td></tr>
+        <tr><td class="time">16:00~17:30</td><td>🚢 <b>五四广场→奥帆中心</b>：地铁3号线，看「五月的风」雕塑，沿海走到奥帆中心</td><td class="free">免费</td></tr>
+        <tr><td class="time">17:30~18:30</td><td>🍜 晚餐：云霄路美食街，辣炒蛤蜊 + 原浆啤酒 + 鲅鱼水饺</td><td class="cost">¥90</td></tr>
+        <tr><td class="time">19:00~22:00</td><td>🎉 <b>第36届青岛国际啤酒节</b>：西海岸金沙滩主会场（到8/11截止，最后几天！），原浆+海鲜+音乐</td><td class="cost">¥100</td></tr>
+      </table>
+      <div class="day-note">🚇 到啤酒节：五四广场坐地铁1号线→井冈山路站转13号线→金沙滩站，约40分钟</div>
+    </div>
+
+    <div class="day-block">
+      <div class="day-head">
+        <div class="day-no">D2</div>
+        <div>
+          <div class="day-title">8/6 周四 · 老城经典 + 日落</div>
+          <div class="day-sub">栈桥、信号山、大学路网红墙、啤酒博物馆、小麦岛落日</div>
+        </div>
+      </div>
+      <table class="tb">
+        <tr><th style="width:130px">时间</th><th>活动</th><th style="width:80px">费用</th></tr>
+        <tr><td class="time">08:30~09:00</td><td>🥟 早餐：青岛锅贴 + 甜沫</td><td class="cost">¥18</td></tr>
+        <tr><td class="time">09:00~10:00</td><td>🏛️ <b>栈桥</b>：从酒店步行约10分钟，回澜阁必拍，清晨人少</td><td class="free">免费</td></tr>
+        <tr><td class="time">10:00~11:00</td><td>⛰️ <b>信号山公园</b>：步行约15分钟，登顶俯瞰老城红瓦绿树全景</td><td class="cost">¥10</td></tr>
+        <tr><td class="time">11:00~12:00</td><td>🚶 <b>大学路网红墙 + 龙江路涂鸦街</b>：拐角红墙必打卡</td><td class="free">免费</td></tr>
+        <tr><td class="time">12:00~13:00</td><td>🍜 午餐：大学路附近小馆，或回中山路吃</td><td class="cost">¥70</td></tr>
+        <tr><td class="time">13:00~14:30</td><td>🏨 午休，避过正午暴晒</td><td class="free">—</td></tr>
+        <tr><td class="time">15:00~16:30</td><td>🍻 <b>青岛啤酒博物馆</b>：地铁2号线→利津路站，百年青啤历史，免费品尝原浆</td><td class="cost">¥60</td></tr>
+        <tr><td class="time">17:00~18:30</td><td>🌅 <b>小麦岛公园</b>：青岛落日天花板，草坪+海景+晚霞</td><td class="free">免费</td></tr>
+        <tr><td class="time">19:00~20:30</td><td>🍜 晚餐 + 夜市：<b>台东步行街夜市</b>，海鲜小吃烟火气</td><td class="cost">¥90</td></tr>
+        <tr><td class="time">20:30~</td><td>🏨 地铁2号线→1号线回酒店，约25分钟</td><td class="cost">¥5</td></tr>
+      </table>
+    </div>
+
+    <div class="day-block">
+      <div class="day-head">
+        <div class="day-no">D3</div>
+        <div>
+          <div class="day-title">8/7 周五 · 日出 + 返程</div>
+          <div class="day-sub">石老人看日出，回家吃午饭</div>
+        </div>
+      </div>
+      <table class="tb">
+        <tr><th style="width:130px">时间</th><th>活动</th><th style="width:80px">费用</th></tr>
+        <tr><td class="time">04:30~04:50</td><td>🌅 打车去<b>石老人海水浴场</b>（约20分钟）</td><td class="cost">¥20</td></tr>
+        <tr><td class="time">05:10~05:30</td><td>🌅 <b>看日出</b>：8月初日出约5:10~5:20，金色海面+石老人剪影</td><td class="free">免费</td></tr>
+        <tr><td class="time">05:30~06:30</td><td>🏖️ 海边散步拍照，清晨人少，捡贝壳</td><td class="free">免费</td></tr>
+        <tr><td class="time">06:30~07:30</td><td>🏨 地铁回酒店补觉</td><td class="cost">¥5</td></tr>
+        <tr><td class="time">09:00~10:00</td><td>🥟 早餐 + 退房，行李寄存前台</td><td class="cost">¥15</td></tr>
+        <tr><td class="time">10:00~10:30</td><td>🚶 步行去青岛站（天津路→青岛站约5~8分钟）</td><td class="free">—</td></tr>
+        <tr><td class="time">10:46~12:36</td><td><b>G6910 青岛站→济南东</b>，1h50min，到家吃午饭</td><td class="cost">¥157</td></tr>
+      </table>
+      <div class="day-note">🌅 石老人海水浴场是青岛最佳日出观赏点，8月初日出约 <b>5:10~5:20</b>，建议 4:30 出发。看完日出回酒店补觉，完美衔接。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 美食 ===== -->
+<section id="food">
+  <div class="wrap">
+    <div class="section-head"><span class="no">TASTE</span><h2>必吃清单</h2><span class="line"></span></div>
+    <div class="food-grid">
+      <div class="food-card"><div class="emo">🥟</div><h4>鲅鱼水饺</h4><div class="pr">¥30~50</div><div class="wh">王姐烧烤、船歌鱼水饺</div></div>
+      <div class="food-card"><div class="emo">🦪</div><h4>辣炒蛤蜊</h4><div class="pr">¥20~30</div><div class="wh">啤酒屋、台东夜市</div></div>
+      <div class="food-card"><div class="emo">🍺</div><h4>原浆啤酒</h4><div class="pr">¥15~25/扎</div><div class="wh">啤酒博物馆、啤酒节、啤酒屋</div></div>
+      <div class="food-card"><div class="emo">🦐</div><h4>海肠捞饭</h4><div class="pr">¥48~68</div><div class="wh">前海沿、开海</div></div>
+      <div class="food-card"><div class="emo">🦀</div><h4>清蒸螃蟹/皮皮虾</h4><div class="pr">时价</div><div class="wh">团岛市场买→啤酒屋加工</div></div>
+      <div class="food-card"><div class="emo">🥟</div><h4>青岛锅贴</h4><div class="pr">¥15~25</div><div class="wh">劈柴院锅贴（离酒店很近）</div></div>
+      <div class="food-card"><div class="emo">🐟</div><h4>笔管炒韭菜</h4><div class="pr">¥30~40</div><div class="wh">本地小馆子</div></div>
+    </div>
+    <div class="food-tip">㊙️ <b>省钱吃法</b>：去团岛农贸市场（离酒店地铁1站路）买活海鲜，找附近啤酒屋加工（加工费¥10~20/道），再点几扎原浆，人均才七八十，比餐厅省一半！</div>
+  </div>
+</section>
+
+<!-- ===== 预算 ===== -->
+<section id="budget">
+  <div class="wrap">
+    <div class="section-head"><span class="no">BUDGET</span><h2>预算明细</h2><span class="line"></span></div>
+    <table class="budg-table">
+      <tr><th>项目</th><th>明细</th><th>金额</th></tr>
+      <tr class="cat"><td>🚄 高铁往返</td><td>G6911 ¥159 + G6910 ¥157</td><td>¥316 ✅</td></tr>
+      <tr class="cat"><td>🏨 住宿 2晚</td><td>格林风尚假日酒店 · 特惠大床房</td><td>¥388 ✅</td></tr>
+      <tr class="cat"><td>🎫 景点门票</td><td>信号山¥10 + 啤酒博物馆¥60（花石楼¥8.5可选）</td><td>¥70~78.5</td></tr>
+      <tr class="cat"><td>🍜 餐饮（2天半）</td><td>详见明细</td><td>~¥393</td></tr>
+      <tr class="cat"><td>🚌 市内交通</td><td>地铁+打车，3天</td><td>~¥68</td></tr>
+      <tr class="cat"><td>🍺 啤酒节</td><td>入场¥20 + 啤酒¥50 + 小吃¥30</td><td>¥100</td></tr>
+      <tr class="total"><td>总计</td><td>3天2晚全程</td><td>¥1,335 ~ ¥1,343</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ===== 贴士 ===== -->
+<section id="tips">
+  <div class="wrap">
+    <div class="section-head"><span class="no">TIPS</span><h2>实用贴士</h2><span class="line"></span></div>
+    <div class="tips-grid">
+      <div class="tip"><span class="ico">🧴</span>防晒必做——海边紫外线强，防晒霜+帽子+墨镜</div>
+      <div class="tip"><span class="ico">🚇</span>地铁最方便——「青岛地铁」APP扫码乘车</div>
+      <div class="tip"><span class="ico">🌅</span>看日出——8月初约5:10~5:20，4:30出发打车去石老人</div>
+      <div class="tip"><span class="ico">🎫</span>啤酒博物馆提前公众号预约，下午去人少</div>
+      <div class="tip"><span class="ico">🦐</span>海鲜避坑——别在景区门口大排档吃，去团岛/营口路市场买活鲜加工</div>
+      <div class="tip"><span class="ico">🍺</span>啤酒节冲一下——西海岸主会场到8/11截止，周三晚上是最后机会</div>
+      <div class="tip"><span class="ico">👟</span>穿舒服的鞋——三天走不少路</div>
+      <div class="tip"><span class="ico">🌊</span>下海注意安全——只在正规浴场游泳</div>
+      <div class="tip"><span class="ico">🏨</span>酒店位置超好——步行到青岛站5分钟、栈桥10分钟，地铁1号线就在旁边</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  青岛 · 红瓦绿树碧海蓝天 ｜ 2026.08.05 — 08.07 ｜ <b>攻略存档 · 已购票已订房</b><br>
+  存档整理于 2026-09-11 ｜ 数据为出行前定版，价格以当时实付为准
+</footer>
+
+</body>
+</html>
